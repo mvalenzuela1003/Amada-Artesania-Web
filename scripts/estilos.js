@@ -52,18 +52,10 @@ function headerScroll() {
 function smoothScroll(destino, duracion) {
     //Posicion del de la parte superior del destino  respecto a la parte superior de la pantalla
     var posInicio = window.pageYOffset;
-    console.log("Posicion inicio " + posInicio);
+    var posDestino = destino.getBoundingClientRect().top + posInicio - 90;
 
-
-    if (posInicio > window.innerHeight) {
-        posInicio = window.pageYOffset - 90
-        console.log("Nueva posicion inicio " + posInicio);
-    }
-    var posDestino = destino.getBoundingClientRect().top + posInicio;
     var distancia = posDestino - posInicio;
     var momInicio = null;
-    console.log("Posicion destino: " + posDestino);
-    console.log("Distancia: " + distancia);
 
     function animacionScroll(momActual) {
         if (momInicio === null) {
